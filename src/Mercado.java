@@ -9,38 +9,32 @@ public Mercado(Vendedor[] sellers){
     }
 
     public Vendedor[] getSellers() {
-        return sellers;
+        return this.sellers;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {
-        return name;
-    }
-
-    public String getLocal() {
-        return local;
-    }
-
-    public double getSalesAmont() {
-        return salesAmont;
-    }
-
-    public double setSalesAmont() { // TODO implementar a logica do total das vendas
-        double total = 0;
-        double[] salesAmount = new double[sellers.length];
-        for (int i = 0; i < sellers.length; i++) {
-            salesAmount[i] = sellers[i].getSalesAmount();
-        }
-        for (int j = 0; j < sellers.length; j++) {
-            total += salesAmount[j];
-        }
-        return total;
+        return this.name;
     }
 
     public void setLocal(String local) {
         this.local = local;
     }
 
-    public String setName(String name) {
-       return this.name = name;
+    public String getLocal() {
+        return this.local;
+    }
+
+    public void setSalesAmont() {
+        for (int i = 0; i < sellers.length; i++) {
+            this.salesAmont += sellers[i].getSalesAmount();
+        }
+    }
+
+    public double getSalesAmont() {
+        return this.salesAmont;
     }
 }

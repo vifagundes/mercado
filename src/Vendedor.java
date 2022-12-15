@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Vendedor {
     private final String name;
     private double salesAmount;
@@ -14,7 +16,8 @@ public class Vendedor {
         return this.salesAmount;
     }
 
-    public void setSalesAmount(double salesAmount) {
-        this.salesAmount = salesAmount;
+    public void setSalesAmount() {
+        Random random = new Random();
+        this.salesAmount = random.nextDouble(100, 1001);
     }
 }
