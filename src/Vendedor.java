@@ -9,12 +9,7 @@ public class Vendedor {
 
     public Vendedor(){
         Random random = new Random();
-        String[] namesList = {"Vini", "Nicole", "Tuti", "Kiko", "Neymar", "Pedro", "Gabriel", "Rodrigo", "Ana",
-                "Alisson", "Wellington", "Cleber", "Sergio", "Bruno", "Myllena", "Richarlison", "Lucas", "Xande",
-                "Arthur", "Bianca", "Bryan", "Falcao", "Renata", "Messi", "Ronaldo", "Guilerme", "Roger", "Zeite",
-                "Marcelo", "Yasmin", "Patricia", "Caio", "Alfredo", "Fulano", "Luan", "Mariana", "Jesus", "Kevin",
-                "Diego", "Fabio", "Monique", "Evandro"};
-        this.name        = namesList[random.nextInt(namesList.length)];
+        this.name        = Main.namesList[random.nextInt(Main.namesList.length)];
         this.salesAmount = Comprador.shopping();
     }
 
