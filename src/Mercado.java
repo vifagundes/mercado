@@ -1,27 +1,23 @@
 public class Mercado {
    private final Vendedor[] sellers;
-   private String name;
-   private String local;
+   private final String name;
+   private final String local;
    private double salesAmont;
+   private final double meta;
 
-public Mercado(Vendedor[] sellers){
+public Mercado(Vendedor[] sellers, String name, String local, double meta){
         this.sellers = sellers;
+        this.name    = name;
+        this.local   = local;
+        this.meta    = meta;
     }
 
     public Vendedor[] getSellers() {
         return this.sellers;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return this.name;
-    }
-
-    public void setLocal(String local) {
-        this.local = local;
     }
 
     public String getLocal() {
@@ -36,5 +32,9 @@ public Mercado(Vendedor[] sellers){
 
     public double getSalesAmont() {
         return this.salesAmont;
+    }
+
+    public double getMeta() {
+        return meta;
     }
 }
