@@ -1,9 +1,7 @@
-import java.util.Scanner;
-
 public class Testes {
 
 
-    public static int qntSellers = 5;
+    public static int qntSellers = 10;
     public static void main(String[] args) {
 
         Vendedor[] firstStoreSellers  = new Vendedor[qntSellers];
@@ -21,13 +19,13 @@ public class Testes {
             thirdStoreSellers[i].setSalesAmount();
         }
 
-        Mercado firststore = new Mercado(firstStoreSellers, "Automotivo", "Rio Grande do Sul", 700);
+        Mercado firststore = new Mercado(firstStoreSellers, "Automotivo", "Rio Grande do Sul", 300);
         firststore.setSalesAmont();
 
-        Mercado secondStore = new Mercado(secondStoreSellers, "Informatica", "São Paulo", 400);
+        Mercado secondStore = new Mercado(secondStoreSellers, "Informatica", "São Paulo", 500);
         secondStore.setSalesAmont();
 
-        Mercado thirdStore = new Mercado(thirdStoreSellers, "Fitnes", "Minas Gerais", 300);
+        Mercado thirdStore = new Mercado(thirdStoreSellers, "Fitnes", "Minas Gerais", 700);
         thirdStore.setSalesAmont();
 
         for (int i = 0; i < qntSellers; i++) {
@@ -43,20 +41,34 @@ public class Testes {
             secondStoreSellers[i].setTotal();
             thirdStoreSellers[i].setTotal();
         }
-        System.out.println("\nSUMARIO DO MERCADO " + firststore.getName().toUpperCase());
-        for (int i = 0; i < qntSellers; i++) {
-            System.out.printf("\nVENDEDOR: %-15sVALOR VENDIDO: R$ %.2f",firstStoreSellers[i].getName(), firstStoreSellers[i].getSalesAmount());
-        }
+        sumary(firstStoreSellers, firststore);
+        sumary(secondStoreSellers, secondStore);
+        sumary(thirdStoreSellers, thirdStore);
 
-        System.out.println("\n\nSUMARIO DO MERCADO " + secondStore.getName().toUpperCase());
-        for (int i = 0; i < qntSellers; i++) {
-            System.out.printf("\nVENDEDOR: %-15sVALOR VENDIDO: R$ %.2f",secondStoreSellers[i].getName(), secondStoreSellers[i].getSalesAmount());
-        }
 
-        System.out.println("\n\nSUMARIO DO MERCADO " + thirdStore.getName().toUpperCase());
-        for (int i = 0; i < qntSellers; i++) {
-            System.out.printf("\nVENDEDOR: %-15sVALOR VENDIDO: R$ %.2f",thirdStoreSellers[i].getName(), thirdStoreSellers[i].getSalesAmount());
-        }
+    }
 
+    private static void sumary(Vendedor[] sellers, Mercado store) {
+        System.out.printf("\n\nSUMARIO DO MERCADO %S EM %S - META: R$ %.2f",
+                store.getName(),
+                store.getLocal(),
+                store.getMeta());
+        for (int i = 0; i < qntSellers; i++) {
+            System.out.printf("\nVENDEDOR: %-15sVALOR VENDIDO: R$ %.2f", sellers[i].getName(), sellers[i].getSalesAmount());
+        }
+        System.out.println();
+        int totalbonus = 0;
+        for (int j = 0; j < qntSellers; j++) {
+            if (sellers[j].getBonus() > 0) {
+                System.out.printf("\nVENDEDOR: %-15s ATINGIU A META E RECEBEU O BONUS DE R$ %.2f TOTALIZANDO: R$ %.2f",
+                        sellers[j].getName(),
+                        sellers[j].getBonus(),
+                        sellers[j].getTotal());
+                totalbonus += sellers[j].getBonus();
+            }
+        }
+        if (totalbonus == 0) {
+            System.out.println("\nNENHUM VENDEDOR ATINGIU A META");
+        }
     }
 }

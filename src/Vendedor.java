@@ -2,9 +2,10 @@ import java.util.Random;
 
 public class Vendedor {
     private final String[] names =
-            {"Vini", "Nicole" ,"Tuti", "Kiko", "Neymar", "Pedro", "Gabriel", "Rodrigo", "Ana", "Alisson",
+            {"Vini", "Nicole" ,"Tuti", "Kiko", "Neymar", "Pedro", "Gabriel", "Rodrigo", "Ana", "Alisson", "Wellington",
             "Cleber", "Sergio" ,"Bruno", "Myllena", "Richarlison", "Lucas", "Xande", "Arthur", "Bianca","Bryan",
-                    "Renata", "Messi" ,"Ronaldo", "Guilerme", "Roger", "Zeite", "Marcelo", "Yasmin", "Patricia"};
+            "Falcao", "Renata", "Messi" ,"Ronaldo", "Guilerme", "Roger", "Zeite", "Marcelo", "Yasmin", "Patricia",
+            "Caio", "Alfredo", "Fulano", "Luan", "Mariana", "Jesus", "Kevin", "Diego", "Fabio", "Monique", "Evandro"};
     private final String name;
     private Mercado market;
     private double salesAmount;
@@ -14,7 +15,7 @@ public class Vendedor {
     Random random = new Random();
 
     public Vendedor(){
-        this.name  = names[random.nextInt(29)];
+        this.name  = names[random.nextInt(names.length)];
     }
 
     public String getName() {
