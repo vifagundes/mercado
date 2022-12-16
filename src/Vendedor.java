@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Vendedor {
-    private final String[] names =
+    private final String[] namesList =
             {"Vini", "Nicole" ,"Tuti", "Kiko", "Neymar", "Pedro", "Gabriel", "Rodrigo", "Ana", "Alisson", "Wellington",
             "Cleber", "Sergio" ,"Bruno", "Myllena", "Richarlison", "Lucas", "Xande", "Arthur", "Bianca","Bryan",
             "Falcao", "Renata", "Messi" ,"Ronaldo", "Guilerme", "Roger", "Zeite", "Marcelo", "Yasmin", "Patricia",
@@ -15,7 +15,7 @@ public class Vendedor {
     Random random = new Random();
 
     public Vendedor(){
-        this.name  = names[random.nextInt(names.length)];
+        this.name  = namesList[random.nextInt(namesList.length)];
         this.salesAmount = random.nextDouble(901) + 100;
     }
 
