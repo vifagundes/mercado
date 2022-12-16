@@ -1,22 +1,21 @@
 import java.util.Random;
 
 public class Vendedor {
-    private final String[] namesList =
-            {"Vini", "Nicole" ,"Tuti", "Kiko", "Neymar", "Pedro", "Gabriel", "Rodrigo", "Ana", "Alisson", "Wellington",
-            "Cleber", "Sergio" ,"Bruno", "Myllena", "Richarlison", "Lucas", "Xande", "Arthur", "Bianca","Bryan",
-            "Falcao", "Renata", "Messi" ,"Ronaldo", "Guilerme", "Roger", "Zeite", "Marcelo", "Yasmin", "Patricia",
-            "Caio", "Alfredo", "Fulano", "Luan", "Mariana", "Jesus", "Kevin", "Diego", "Fabio", "Monique", "Evandro"};
     private final String name;
     private Mercado market;
     private final double salesAmount;
     private double bonus;
     private double total;
 
-    Random random = new Random();
-
     public Vendedor(){
-        this.name  = namesList[random.nextInt(namesList.length)];
-        this.salesAmount = random.nextDouble(901) + 100;
+        Random random = new Random();
+        String[] namesList = {"Vini", "Nicole", "Tuti", "Kiko", "Neymar", "Pedro", "Gabriel", "Rodrigo", "Ana",
+                "Alisson", "Wellington", "Cleber", "Sergio", "Bruno", "Myllena", "Richarlison", "Lucas", "Xande",
+                "Arthur", "Bianca", "Bryan", "Falcao", "Renata", "Messi", "Ronaldo", "Guilerme", "Roger", "Zeite",
+                "Marcelo", "Yasmin", "Patricia", "Caio", "Alfredo", "Fulano", "Luan", "Mariana", "Jesus", "Kevin",
+                "Diego", "Fabio", "Monique", "Evandro"};
+        this.name        = namesList[random.nextInt(namesList.length)];
+        this.salesAmount = Comprador.shopping();
     }
 
     public String getName() {
