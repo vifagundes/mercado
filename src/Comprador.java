@@ -1,7 +1,6 @@
 public class Comprador {
 
+public static void shopping(){
 
-public static void payment(){
-}
-
+    }
 }

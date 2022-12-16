@@ -8,7 +8,7 @@ public class Vendedor {
             "Caio", "Alfredo", "Fulano", "Luan", "Mariana", "Jesus", "Kevin", "Diego", "Fabio", "Monique", "Evandro"};
     private final String name;
     private Mercado market;
-    private double salesAmount;
+    private final double salesAmount;
     private double bonus;
     private double total;
 
@@ -16,6 +16,7 @@ public class Vendedor {
 
     public Vendedor(){
         this.name  = names[random.nextInt(names.length)];
+        this.salesAmount = random.nextDouble(901) + 100;
     }
 
     public String getName() {
@@ -26,17 +27,8 @@ public class Vendedor {
         return this.salesAmount;
     }
 
-    public void setSalesAmount() {
-        Random random = new Random();
-        this.salesAmount = random.nextDouble(901) + 100;
-    }
-
     public void setMarket(Mercado market) {
         this.market = market;
-    }
-
-    public String getMarketName() {
-        return market.getName();
     }
 
     public double getBonus() {

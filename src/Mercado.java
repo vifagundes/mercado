@@ -26,7 +26,7 @@ public Mercado(Vendedor[] sellers, String name, String local, double meta){
 
     public void setSalesAmont() {
         for (int i = 0; i < sellers.length; i++) {
-            this.salesAmont += sellers[i].getSalesAmount();
+            this.salesAmont += sellers[i].getTotal();
         }
     }
 
