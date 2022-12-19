@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Mercado {
    private final Vendedor[] sellers;
    private final String name;
@@ -12,6 +10,19 @@ public Mercado(Vendedor[] sellers, String name, String local, double meta){
         this.name    = name;
         this.local   = local;
         this.meta    = meta;
+    }
+
+    public void setBonus() {
+        for (int i = 0; i < sellers.length; i++) {
+            if (Regulador.isApplicable(sellers[i].getSalesAmount(), meta)) {
+                sellers[i].setBonus(sellers[i].getSalesAmount() * 0.1);
+                sellers[i].setTotal(sellers[i].getBonus() + sellers[i].getSalesAmount());
+            } else {
+                sellers[i].setBonus(0.0);
+                sellers[i].setTotal(0.0);
+            }
+        }
+
     }
 
     public Vendedor[] getSellers() {

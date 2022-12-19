@@ -1,10 +1,6 @@
 public class Regulador {
 
-    public static double aplicar(double sallesAmount, double meta) {
-        if (sallesAmount > meta) {
-            return sallesAmount * 0.1;
-        } else {
-            return 0;
-        }
+    public static boolean isApplicable(double sallesAmount, double meta) {
+        return sallesAmount > meta;
     }
 }

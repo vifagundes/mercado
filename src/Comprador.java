@@ -4,8 +4,8 @@ public class Comprador {
 
     private final String name;
     private final String lastName;
-    private Mercado market;
-    private Vendedor seller;
+    private final Mercado market;
+    private final Vendedor seller;
     private double total;
 
     public Comprador(Mercado[] marketList) {
@@ -16,20 +16,16 @@ public class Comprador {
         this.seller   = market.getSellers()[random.nextInt(Main.qntSellers)];
     }
 
-    public void buy(){
+    public void buy() {
         Random random = new Random();
         double sellValue = random.nextDouble(901) + 100;
-        if (seller.getSalesAmount() > 0) {
-            seller.sell(seller.getSalesAmount() + sellValue);
-            seller.setQntSells(seller.getQntSells() + 1);
-        } else {
-            seller.sell(sellValue);
-            seller.setQntSells(1);
-        }
+        this.setTotal(sellValue);
+        seller.sell(sellValue);
+        seller.setBuyersNames(this.getName());
     }
 
-    public void setTotal() {
-        this.total = this.seller.getSalesAmount();
+    public void setTotal(double value) {
+        this.total = value;
     }
 
     public double getTotal() {
@@ -40,11 +36,15 @@ public class Comprador {
         return this.name + " " + this.lastName;
     }
 
+    public Vendedor getSeller() {
+        return seller;
+    }
+
     @Override
     public String toString() {
         return "Comprador{" +
-                "name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
+                name +
+                lastName +
                 ", market=" + market +
                 ", seller=" + seller +
                 ", total=" + total +
