@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Mercado {
    private final Vendedor[] sellers;
    private final String name;
@@ -26,7 +28,7 @@ public Mercado(Vendedor[] sellers, String name, String local, double meta){
 
     public void setSalesAmont() {
         for (int i = 0; i < sellers.length; i++) {
-            this.salesAmont += sellers[i].getTotal();
+            this.salesAmont += sellers[i].getSalesAmount();
         }
     }
 
@@ -36,5 +38,10 @@ public Mercado(Vendedor[] sellers, String name, String local, double meta){
 
     public double getMeta() {
         return meta;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

@@ -2,42 +2,43 @@ import java.util.Random;
 
 public class Vendedor {
     private final String name;
+    private final String lastName;
     private Mercado market;
-    private final double salesAmount;
-    private double bonus;
-    private double total;
+    private double salesAmount;
+    private int qntSells;
 
     public Vendedor(){
         Random random = new Random();
-        this.name        = Main.namesList[random.nextInt(Main.namesList.length)];
-        this.salesAmount = Comprador.shopping();
+        this.name     = Main.namesList[random.nextInt(Main.namesList.length)];
+        this.lastName = Main.lastNameList[random.nextInt(Main.lastNameList.length)];
     }
 
     public String getName() {
-        return this.name;
-    }
-
-    public double getSalesAmount() {
-        return this.salesAmount;
+        return this.name + " " + this.lastName;
     }
 
     public void setMarket(Mercado market) {
         this.market = market;
     }
 
-    public double getBonus() {
-        return bonus;
+    public void sell(double value) {
+        this.salesAmount = value;
     }
 
-    public double getTotal() {
-        return total;
+    public double getSalesAmount() {
+        return this.salesAmount;
     }
 
-    public void setBonus() {
-        this.bonus = Regulador.aplicar(this.salesAmount, market.getMeta());
+    @Override
+    public String toString() {
+        return name + lastName;
     }
 
-    public void setTotal() {
-        this.total = salesAmount + bonus;
+    public int getQntSells() {
+        return qntSells;
+    }
+
+    public void setQntSells(int qntSells) {
+        this.qntSells = qntSells;
     }
 }
